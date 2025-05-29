@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modding Hub - Premium Game MODs</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        /* Previous CSS remains the same */
+        
+        /* Add these new styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+        }
+        
+        #rewardedAdContainer {
+            min-height: 200px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .close-modal {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .close-modal:hover {
+            background-color: #c0392b;
+        }
+        
+        #proceedBtn {
+            display: none;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #proceedBtn:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Previous HTML remains the same until the download button -->
+        
+        <button class="download-btn" id="downloadBtn">Download MOD APK</button>
+        
+        <!-- Rest of your HTML remains the same -->
+        
+        <!-- Add this modal at the bottom of your body, before the closing </div> -->
+        <div class="modal" id="rewardedAdModal">
+            <div class="modal-content">
+                <h3>Watch a Short Ad to Download</h3>
+                <p>Please watch this short ad to support us and unlock your download.</p>
+                
+                <div id="rewardedAdContainer">
+                    <!-- Ad will be loaded here -->
+                    <p>Loading ad...</p>
+                </div>
+                
+                <p id="adStatus">Ad not started yet</p>
+                
+                <button id="proceedBtn" onclick="proceedToDownload()">Proceed to Download</button>
+                <button class="close-modal" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variable to store the download link
+        let downloadUrl = "https://your-actual-download-link.com/mod.apk";
+        
+        // Get elements
+        const downloadBtn = document.getElementById('downloadBtn');
+        const rewardedAdModal = document.getElementById('rewardedAdModal');
+        const adStatus = document.getElementById('adStatus');
+        const proceedBtn = document.getElementById('proceedBtn');
+        
+        // Set up the download button click handler
+        downloadBtn.addEventListener('click', function() {
+            // Show the modal with the ad
+            rewardedAdModal.style.display = 'flex';
+            
+            // Load the rewarded ad
+            loadRewardedAd();
+        });
+        
+        // Function to close the modal
+        function closeModal() {
+            rewardedAdModal.style.display = 'none';
+        }
+        
+        // Function to proceed to download after ad is watched
+        function proceedToDownload() {
+            // Redirect to the download URL
+            window.location.href = downloadUrl;
+            closeModal();
+        }
+        
+        // Function to load the rewarded ad
+        function loadRewardedAd() {
+            // Check if adsbygoogle is loaded
+            if (typeof adsbygoogle !== 'undefined') {
+                // Create the ad display container
+                const adContainer = document.getElementById('rewardedAdContainer');
+                adContainer.innerHTML = '';
+                
+                // Create the ad slot
+                const adSlot = document.createElement('ins');
+                adSlot.className = 'adsbygoogle';
+                adSlot.style.display = 'block';
+                adSlot.dataset.adClient = 'ca-pub-YOUR_ADSENSE_ID';
+                adSlot.dataset.adSlot = 'YOUR_REWARDED_AD_SLOT_ID';
+                adSlot.dataset.adFormat = 'auto';
+                adSlot.dataset.fullWidthResponsive = 'true';
+                
+                // Add the ad slot to the container
+                adContainer.appendChild(adSlot);
+                
+                // Display status
+                adStatus.textContent = 'Ad is loading...';
+                
+                // Push the ad
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                
+                // Listen for ad events (this is a simplified version)
+                // Note: Google AdSense doesn't have direct rewarded ads like AdMob
+                // This is a workaround using regular display ads
+                
+                // For a proper rewarded ad experience, you would need to:
+                // 1. Use Google AdMob instead of AdSense (for mobile apps)
+                // 2. Or implement a custom solution with a timer
+                
+                // This is a simulated version that just shows a timer
+                simulateAdExperience();
+            } else {
+                adStatus.textContent = 'Ad failed to load. Please try again later.';
+            }
+        }
+        
+        // Simulate an ad experience with a timer
+        function simulateAdExperience() {
+            let seconds = 15;
+            adStatus.textContent = `Please watch the ad for ${seconds} seconds...`;
+            
+            const timer = setInterval(() => {
+                seconds--;
+                adStatus.textContent = `Please watch the ad for ${seconds} seconds...`;
+                
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    adStatus.textContent = 'Ad completed!';
+                    proceedBtn.style.display = 'inline-block';
+                }
+            }, 1000);
+        }
+        
+        // For a real implementation with Google Ad Manager (for web rewarded ads):
+        /*
+        function loadRealRewardedAd() {
+            // You would need to use Google Publisher Tag (GPT) for web rewarded ads
+            // This requires setup in Google Ad Manager
+            
+            googletag.cmd.push(function() {
+                const slot = googletag.defineSlot('/1234567/your-rewarded-ad', [1, 1], 'rewardedAdContainer')
+                    .addService(googletag.pubads())
+                    .setRewarded(true);
+                
+                googletag.pubads().addEventListener('rewardedSlotReady', function(event) {
+                    adStatus.textContent = 'Ad is ready. Please watch to completion.';
+                    event.makeRewardedVisible();
+                });
+                
+                googletag.pubads().addEventListener('rewardedSlotGranted', function() {
+                    adStatus.textContent = 'Thank you! Ad completed.';
+                    proceedBtn.style.display = 'inline-block';
+                });
+                
+                googletag.pubads().addEventListener('rewardedSlotClosed', function() {
+                    // Handle if user closes ad early
+                });
+                
+                googletag.enableServices();
+                googletag.display('rewardedAdContainer');
+            });
+        }
+        */
+    </script>
+</body>
+</html>
