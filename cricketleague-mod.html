@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modding Hub - Premium Game MODs</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .game-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .game-info {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .game-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+        
+        .download-btn:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .ad-container {
+            width: 100%;
+            margin: 30px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mod-features {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mod-features h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .install-steps {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .install-steps h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+        
+        .steps-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 15px auto;
+            list-style-position: inside;
+        }
+        
+        .steps-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .game-title {
+                font-size: 1.5rem;
+            }
+            
+            .download-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .mod-features {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 15px 0;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .game-container {
+                padding: 20px 15px;
+            }
+            
+            .game-title {
+                font-size: 1.3rem;
+            }
+            
+            .game-description {
+                font-size: 1rem;
+            }
+            
+            .install-steps h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Modding Hub</h1>
+            <p>Download the best 100% working mods</p>
+        </header>
+        
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="game-container">
+            <img src="https://via.placeholder.com/800x450?text=Game+Image" alt="Game Name" class="game-image">
+            
+            <div class="game-info">
+                <h2 class="game-title">[Game Name] Premium MOD</h2>
+                <p class="game-description">
+                    Download the latest version of [Game Name] with all premium features unlocked. 
+                    No root required, works on all devices. 100% safe and tested by our team.
+                </p>
+                <button class="download-btn">Download MOD APK</button>
+                <p style="font-size: 0.9rem; color: #777;">File size: 85MB | Version: 1.2.5</p>
+            </div>
+            
+            <div class="mod-features">
+                <h2>MOD Features</h2>
+                <ul class="features-list">
+                    <li>Premium Features Unlocked</li>
+                    <li>All Characters/Levels Available</li>
+                    <li>No Advertisements</li>
+                    <li>Unlimited In-Game Currency</li>
+                    <li>One Hit Kill (Optional)</li>
+                    <li>God Mode Enabled</li>
+                    <li>Anti-Ban Protection</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Middle Ad Rectangle -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="install-steps">
+            <h3>How to Install</h3>
+            
+            <!-- YouTube Video Embed -->
+            <div class="video-container">
+                <!-- Replace with your YouTube embed code -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <ol class="steps-list">
+                <li>Download the APK file by clicking the button above</li>
+                <li>Go to your device settings and allow installation from unknown sources</li>
+                <li>Locate the downloaded file and tap to install</li>
+                <li>Open the game and enjoy all premium features!</li>
+            </ol>
+        </div>
+        
+        <!-- Bottom Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <footer>
+            <p>© 2023 Modding Hub. All rights reserved.</p>
+            <p>This site is not affiliated with any game developers. All games are property of their respective owners.</p>
+        </footer>
+    </div>
+</body>
+</html>
