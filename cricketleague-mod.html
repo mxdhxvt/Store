@@ -4,361 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modding Hub - Premium Game MODs</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-3940256099942544/2247696110" crossorigin="anonymous"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        /* Previous CSS remains the same */
         
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px 0;
-            background-color: #2c3e50;
-            color: white;
-            border-radius: 8px;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .game-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .game-info {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .game-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        
-        .game-description {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 20px;
-            max-width: 800px;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background-color: #27ae60;
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            margin: 10px 0;
-            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
-        }
-        
-        .download-btn:hover {
-            background-color: #2ecc71;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
-        }
-        
-        .download-btn:active {
-            transform: translateY(0);
-        }
-        
-        .ad-container {
-            width: 100%;
-            margin: 30px 0;
-            text-align: center;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px dashed #ccc;
-        }
-        
-        .ad-label {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .mod-features {
-            width: 100%;
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .mod-features h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .features-list {
-            list-style-type: none;
-        }
-        
-        .features-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .features-list li::before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .video-container iframe {
-            position: absolute;
+        /* Add these new styles */
+        .modal {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
         
-        .install-steps {
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
-            margin: 30px 0;
         }
         
-        .install-steps h3 {
+        .modal h3 {
             margin-bottom: 20px;
             color: #2c3e50;
-            font-size: 1.5rem;
         }
         
-        .steps-list {
-            text-align: left;
-            max-width: 600px;
-            margin: 15px auto;
-            list-style-position: inside;
+        .modal p {
+            margin-bottom: 20px;
         }
         
-        .steps-list li {
-            margin-bottom: 15px;
-            line-height: 1.6;
+        #rewardedAdContainer {
+            min-height: 200px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 8px;
         }
         
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
+        .close-modal {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
         }
         
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .game-title {
-                font-size: 1.5rem;
-            }
-            
-            .download-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            
-            .mod-features {
-                padding: 15px;
-            }
+        .close-modal:hover {
+            background-color: #c0392b;
         }
         
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 15px 0;
-            }
-            
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            .game-container {
-                padding: 20px 15px;
-            }
-            
-            .game-title {
-                font-size: 1.3rem;
-            }
-            
-            .game-description {
-                font-size: 1rem;
-            }
-            
-            .install-steps h3 {
-                font-size: 1.3rem;
-            }
+        #proceedBtn {
+            display: none;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #proceedBtn:hover {
+            background-color: #2ecc71;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Modding Hub</h1>
-            <p>Download the best 100% working mods</p>
-        </header>
+        <!-- Previous HTML remains the same until the download button -->
         
-        <!-- Top Ad Banner -->
-        <div class="ad-container">
-            <div class="ad-label">Advertisement</div>
-            <!-- Replace with your AdSense code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+        <button class="download-btn" id="downloadBtn">Download MOD APK</button>
         
-        <div class="game-container">
-            <img src="https://via.placeholder.com/800x450?text=Game+Image" alt="Game Name" class="game-image">
-            
-            <div class="game-info">
-                <h2 class="game-title">[Game Name] Premium MOD</h2>
-                <p class="game-description">
-                    Download the latest version of [Game Name] with all premium features unlocked. 
-                    No root required, works on all devices. 100% safe and tested by our team.
-                </p>
-                <button class="download-btn">Download MOD APK</button>
-                <p style="font-size: 0.9rem; color: #777;">File size: 85MB | Version: 1.2.5</p>
-            </div>
-            
-            <div class="mod-features">
-                <h2>MOD Features</h2>
-                <ul class="features-list">
-                    <li>Premium Features Unlocked</li>
-                    <li>All Characters/Levels Available</li>
-                    <li>No Advertisements</li>
-                    <li>Unlimited In-Game Currency</li>
-                    <li>One Hit Kill (Optional)</li>
-                    <li>God Mode Enabled</li>
-                    <li>Anti-Ban Protection</li>
-                </ul>
+        <!-- Rest of your HTML remains the same -->
+        
+        <!-- Add this modal at the bottom of your body, before the closing </div> -->
+        <div class="modal" id="rewardedAdModal">
+            <div class="modal-content">
+                <h3>Watch a Short Ad to Download</h3>
+                <p>Please watch this short ad to support us and unlock your download.</p>
+                
+                <div id="rewardedAdContainer">
+                    <!-- Ad will be loaded here -->
+                    <p>Loading ad...</p>
+                </div>
+                
+                <p id="adStatus">Ad not started yet</p>
+                
+                <button id="proceedBtn" onclick="proceedToDownload()">Proceed to Download</button>
+                <button class="close-modal" onclick="closeModal()">Cancel</button>
             </div>
         </div>
-        
-        <!-- Middle Ad Rectangle -->
-        <div class="ad-container">
-            <div class="ad-label">Advertisement</div>
-            <!-- Replace with your AdSense code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        
-        <div class="install-steps">
-            <h3>How to Install</h3>
-            
-            <!-- YouTube Video Embed -->
-            <div class="video-container">
-                <!-- Replace with your YouTube embed code -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <ol class="steps-list">
-                <li>Download the APK file by clicking the button above</li>
-                <li>Go to your device settings and allow installation from unknown sources</li>
-                <li>Locate the downloaded file and tap to install</li>
-                <li>Open the game and enjoy all premium features!</li>
-            </ol>
-        </div>
-        
-        <!-- Bottom Ad Banner -->
-        <div class="ad-container">
-            <div class="ad-label">Advertisement</div>
-            <!-- Replace with your AdSense code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        
-        <footer>
-            <p>© 2023 Modding Hub. All rights reserved.</p>
-            <p>This site is not affiliated with any game developers. All games are property of their respective owners.</p>
-        </footer>
     </div>
+
+    <script>
+        // Global variable to store the download link
+        let downloadUrl = "https://earnlinks.in/CRICKETLMUH";
+        
+        // Get elements
+        const downloadBtn = document.getElementById('downloadBtn');
+        const rewardedAdModal = document.getElementById('rewardedAdModal');
+        const adStatus = document.getElementById('adStatus');
+        const proceedBtn = document.getElementById('proceedBtn');
+        
+        // Set up the download button click handler
+        downloadBtn.addEventListener('click', function() {
+            // Show the modal with the ad
+            rewardedAdModal.style.display = 'flex';
+            
+            // Load the rewarded ad
+            loadRewardedAd();
+        });
+        
+        // Function to close the modal
+        function closeModal() {
+            rewardedAdModal.style.display = 'none';
+        }
+        
+        // Function to proceed to download after ad is watched
+        function proceedToDownload() {
+            // Redirect to the download URL
+            window.location.href = downloadUrl;
+            closeModal();
+        }
+        
+        // Function to load the rewarded ad
+        function loadRewardedAd() {
+            // Check if adsbygoogle is loaded
+            if (typeof adsbygoogle !== 'undefined') {
+                // Create the ad display container
+                const adContainer = document.getElementById('rewardedAdContainer');
+                adContainer.innerHTML = '';
+                
+                // Create the ad slot
+                const adSlot = document.createElement('ins');
+                adSlot.className = 'adsbygoogle';
+                adSlot.style.display = 'block';
+                adSlot.dataset.adClient = 'ca-app-pub-3940256099942544/5224354917';
+                adSlot.dataset.adSlot = 'ca-app-pub-3940256099942544/5224354917';
+                adSlot.dataset.adFormat = 'auto';
+                adSlot.dataset.fullWidthResponsive = 'true';
+                
+                // Add the ad slot to the container
+                adContainer.appendChild(adSlot);
+                
+                // Display status
+                adStatus.textContent = 'Ad is loading...';
+                
+                // Push the ad
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                
+                // Listen for ad events (this is a simplified version)
+                // Note: Google AdSense doesn't have direct rewarded ads like AdMob
+                // This is a workaround using regular display ads
+                
+                // For a proper rewarded ad experience, you would need to:
+                // 1. Use Google AdMob instead of AdSense (for mobile apps)
+                // 2. Or implement a custom solution with a timer
+                
+                // This is a simulated version that just shows a timer
+                simulateAdExperience();
+            } else {
+                adStatus.textContent = 'Ad failed to load. Please try again later.';
+            }
+        }
+        
+        // Simulate an ad experience with a timer
+        function simulateAdExperience() {
+            let seconds = 15;
+            adStatus.textContent = `Please watch the ad for ${seconds} seconds...`;
+            
+            const timer = setInterval(() => {
+                seconds--;
+                adStatus.textContent = `Please watch the ad for ${seconds} seconds...`;
+                
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    adStatus.textContent = 'Ad completed!';
+                    proceedBtn.style.display = 'inline-block';
+                }
+            }, 1000);
+        }
+        
+        // For a real implementation with Google Ad Manager (for web rewarded ads):
+        /*
+        function loadRealRewardedAd() {
+            // You would need to use Google Publisher Tag (GPT) for web rewarded ads
+            // This requires setup in Google Ad Manager
+            
+            googletag.cmd.push(function() {
+                const slot = googletag.defineSlot('/1234567/your-rewarded-ad', [1, 1], 'rewardedAdContainer')
+                    .addService(googletag.pubads())
+                    .setRewarded(true);
+                
+                googletag.pubads().addEventListener('rewardedSlotReady', function(event) {
+                    adStatus.textContent = 'Ad is ready. Please watch to completion.';
+                    event.makeRewardedVisible();
+                });
+                
+                googletag.pubads().addEventListener('rewardedSlotGranted', function() {
+                    adStatus.textContent = 'Thank you! Ad completed.';
+                    proceedBtn.style.display = 'inline-block';
+                });
+                
+                googletag.pubads().addEventListener('rewardedSlotClosed', function() {
+                    // Handle if user closes ad early
+                });
+                
+                googletag.enableServices();
+                googletag.display('rewardedAdContainer');
+            });
+        }
+        */
+    </script>
 </body>
 </html>
